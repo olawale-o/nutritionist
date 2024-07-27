@@ -5,7 +5,7 @@ const Hero = () => {
     <section>
       <div className="max-w-[1758px] mx-auto">
         <div className="xl:pe-20 2xl:pe-[162px]">
-          <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-10">
+          <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-10 2xl:gap-[50px]">
             <div className="col-span-1">
               <figure className="relative aspect-square rounded-br-[30px] rounded-bl-[30px] xl:rounded-bl-none">
                 <div className="absolute inset-0 w-full h-full">
