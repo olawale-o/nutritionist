@@ -8,7 +8,7 @@ const Features = () => {
               <h2 className="text-grey-15 text-[28px] xl:text-[38px] xl:leading-[57px] 2xl:text-[48px] 2xl:leading-[72px]  font-urbanist leading-[42px] font-bold text-center">
                 Features
               </h2>
-              <div className="mt-[6px]">
+              <div className="mt-[6px] xl:max-w-[780px] 2xl:max-w-[996px] mx-auto">
                 <div className="text-sm text-grey-20 leading-[21px] font-medium text-center xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
                   Welcome to the Feature Section of Nutritionist, your ultimate
                   destination for all things nutrition and wellness.
