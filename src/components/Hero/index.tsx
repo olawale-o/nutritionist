@@ -71,7 +71,7 @@ const Hero = () => {
                         Personalized Nutrition Coaching
                       </div>
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-4 2xl:mt-5">
                       <div className="text-sm font-medium leading-[21px] text-[#333333] text-center xl:text-base xl:text-left xl:leading-6">
                         Welcome to Nutritionist, your partner in achieving
                         optimal health through personalized nutrition coaching.
@@ -81,7 +81,7 @@ const Hero = () => {
                         experience the power of personalized nutrition coaching.
                       </div>
                     </div>
-                    <div className="mt-[30px]">
+                    <div className="mt-[30px] 2xl:mt-[50px]">
                       <div className="flex gap-[14px] justify-center">
                         <Link
                           role="button"
@@ -100,7 +100,7 @@ const Hero = () => {
                       </div>
                     </div>
                     <div className="hidden xl:block">
-                      <div className="mt-[50px]">
+                      <div className="mt-[50px] 2xl:mt-[70px]">
                         <div className="flex items-center">
                           <div className="flex justify-center w-fit mx-auto rounded-[58px] -space-x-[17px] rtl:space-x-reverse py-[6px] px-2 border-[1px] border-solid border-green-70 bg-green-97">
                             <div className="w-10 h-10 rounded-full">
