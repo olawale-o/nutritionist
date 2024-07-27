@@ -17,10 +17,14 @@ const config: Config = {
         urbanist: "var(--font-urbanist)",
       },
       colors: {
-        "green-15": "#1A3129",
-        "green-20": "#234338",
-        "green-40": "#468671",
-        "green-70": "#CBEA7B",
+        green: {
+          15: "#1a3129",
+          20: "#234338",
+          25: "#2c5446",
+          40: "#468671",
+          70: "#cbea7b",
+          97: "#FAFDF2",
+        },
       },
     },
   },
