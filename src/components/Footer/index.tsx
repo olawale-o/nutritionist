@@ -56,7 +56,7 @@ const Footer = () => {
                 <Link
                   href={link.link}
                   key={link.id}
-                  className="text-white text-sm font-urbanist leading-[21px] font-semibold"
+                  className="text-white text-sm font-urbanist leading-[21px] font-semibold duration-150 hover:text-green-70"
                 >
                   {link.title}
                 </Link>
@@ -92,7 +92,7 @@ const Footer = () => {
                 <Link
                   href={link.link}
                   key={link.id}
-                  className="text-white text-sm font-urbanist leading-[21px] font-semibold"
+                  className="text-white text-sm font-urbanist leading-[21px] font-semibold duration-150 hover:text-green-70"
                 >
                   {link.title}
                 </Link>
