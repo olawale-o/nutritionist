@@ -67,9 +67,9 @@ const Hero = () => {
                     </div>
 
                     <div className="mt-[10px]">
-                      <div className="font-urbanist text-green-15  font-bold leading-normal text-center text-[38px] xl:text-5xl xl:text-left">
+                      <h1 className="font-urbanist text-green-15  font-bold leading-normal text-center text-[38px] xl:text-5xl xl:text-left">
                         Personalized Nutrition Coaching
-                      </div>
+                      </h1>
                     </div>
                     <div className="mt-4 2xl:mt-5">
                       <div className="text-sm font-medium leading-[21px] text-[#333333] text-center xl:text-base xl:text-left xl:leading-6">
