@@ -23,6 +23,7 @@ const config: Config = {
           25: "#2c5446",
           40: "#468671",
           70: "#cbea7b",
+          80: "#DCF1A7",
           85: "#E5F5BD",
           90: "#EEF8D3",
           95: "#F6FBE9",
