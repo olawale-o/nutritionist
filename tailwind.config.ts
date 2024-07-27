@@ -13,6 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        urbanist: "var(--font-urbanist)",
+      },
+      colors: {
+        "green-15": "#1A3129",
+        "green-20": "#234338",
+        "green-40": "#468671",
+        "green-70": "#CBEA7B",
+      },
     },
   },
   plugins: [],
