@@ -5,7 +5,7 @@ const Hero = () => {
         <div className="px-4 xl:px-20 2xl:px-[162px]">
           <div className="mt-[50px]">
             <div className="bg bg-green-95 rounded-tl-[10px] rounded-tr-[10px] border-solid border-[1px] border-green-85">
-              <div className="p-[30px]">
+              <div className="p-[30px] xl:p-20 2xl:p-[100px]">
                 <div className="flex flex-col items-center">
                   <div className="w-[62px] h-[62px] rounded-[10px] p-[14px] border-solid border-[3px] border-white">
                     <svg
@@ -33,13 +33,13 @@ const Hero = () => {
                       />
                     </svg>
                   </div>
-                  <div className="mt-[30px]">
-                    <h1 className="text-[28px] leading-[42px] font-semibold text-grey-15 text-center">
+                  <div className="mt-[30px] xl:mt-[60px] 2xl:mt-20">
+                    <h1 className="text-[28px] leading-[42px] font-semibold text-grey-15 text-center xl:text-[38px] xl:leading-[47px] 2xl:text-5xl 2xl:leading-[72px]">
                       Meet Our Team of Experts
                     </h1>
                   </div>
-                  <div className="mt-[6px]">
-                    <div className="text-grey-20 text-sm font-medium leading-[21px] text-center">
+                  <div className="mt-[6px] xl:mt-[10px] 2xl:mt-5">
+                    <div className="text-grey-20 text-sm font-medium leading-[21px] text-center xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
                       Our team at Nutritionist is composed of highly skilled
                       professionals who are passionate about helping you achieve
                       your health and wellness goals. With a diverse range of

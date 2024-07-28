@@ -20,8 +20,31 @@ const teams = [
   {
     id: 4,
     name: "Rachel Adams",
-    role: "Chief Financial Officer",
+    role: "Chief Marketing Officer",
     img: "/assets/images/team_4.png",
+  },
+];
+
+const teamButtons = [
+  {
+    id: 1,
+    title: "Management Team",
+  },
+  {
+    id: 2,
+    title: "Nutritionists and Dietitians",
+  },
+  {
+    id: 3,
+    title: "Customer Support",
+  },
+  {
+    id: 4,
+    title: "Marketing and Communications",
+  },
+  {
+    id: 5,
+    title: "Technology and Development",
   },
 ];
 
@@ -31,50 +54,20 @@ const Teams = () => {
       <div className="max-w-[1758px] mx-auto">
         <div className="px-4 xl:px-20 2xl:px-[162px]">
           <div id="tab-container">
-            <ul className="list-none flex flex-nowrap gap-5 overflow-x-scroll p-5 bg-green-20 rounded-bl-[10px] rounded-br-[10px]">
-              <li>
-                <button
-                  type="button"
-                  className="py-3 px-[18px] bg-green-25 rounded-[6px] border-solid border-[1px] border-green-30 text-white text-sm font-semibold leading-[21px] whitespace-nowrap"
-                >
-                  Management Team
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="whitespace-nowrap py-3 px-[18px] bg-green-25 rounded-[6px] border-solid border-[1px] border-green-30 text-white text-sm font-semibold leading-[21px]"
-                >
-                  Nutritionists and Dietitians
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="whitespace-nowrap py-3 px-[18px] bg-green-25 rounded-[6px] border-solid border-[1px] border-green-30 text-white text-sm font-semibold leading-[21px]"
-                >
-                  Customer Support
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="whitespace-nowrap py-3 px-[18px] bg-green-25 rounded-[6px] border-solid border-[1px] border-green-30 text-white text-sm font-semibold leading-[21px]"
-                >
-                  Marketing and Communications
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="whitespace-nowrap py-3 px-[18px] bg-green-25 rounded-[6px] border-solid border-[1px] border-green-30 text-white text-sm font-semibold leading-[21px]"
-                >
-                  Technology and Development
-                </button>
-              </li>
+            <ul className="list-none flex justify-between overflow-x-scroll p-5 bg-green-20 rounded-bl-[10px] rounded-br-[10px] xl:px-20 xl:py-[30px]  2xl:py-[30px] 2xl:px-[150px]">
+              {teamButtons.map((teamButton) => (
+                <li className="" key={teamButton.id}>
+                  <button
+                    type="button"
+                    className={`py-3 px-[18px] ${teamButton.id === 1 ? "bg-green-25 border-green-30" : ""} rounded-[6px] border-solid border-[1px] border-transparent text-white text-sm font-semibold leading-[21px] whitespace-nowrap xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]`}
+                  >
+                    {teamButton.title}
+                  </button>
+                </li>
+              ))}
             </ul>
-            <div className="mt-50px">
-              <div className="grid grid-cols-1 gap-5">
+            <div className="mt-[30px] xl:mt-10 2xl:mt-[50px]">
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
                 {teams.map((team) => (
                   <div className="col-span-1" key={team.id}>
                     <div className="relative">
@@ -92,11 +85,11 @@ const Teams = () => {
                       <div className="absolute z-10  bottom-0 w-full pr-[60px]">
                         <div className="bg-green-95 rounded-tr-[20px] p-[20px]">
                           <div>
-                            <div className="text-grey-15 text-[20px] font-semibold leading-7">
+                            <div className="text-grey-15 text-[20px] font-semibold leading-7 whitespace-nowrap 2xl:text-2xl 2xl:leading-7">
                               {team.name}
                             </div>
                             <div className="mt-2">
-                              <div className="text-grey-30 font-medium text-base">
+                              <div className="text-grey-30 font-medium text-base whitespace-nowrap 2xl:tex-lg 2xl:leading-6">
                                 {team.role}
                               </div>
                             </div>
