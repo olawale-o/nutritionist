@@ -13,7 +13,7 @@ const links = [
   {
     id: 3,
     title: "Team",
-    link: "/",
+    link: "/team",
   },
   {
     id: 4,

@@ -112,7 +112,7 @@ const Navbar = () => {
                     {links.map((link) => (
                       <Link
                         key={link.id}
-                        href="/"
+                        href={link.link}
                         className="font-urbanist text-green-97 test-sm font-semibold leading-[21px] duration-150 hover:text-green-70"
                       >
                         {link.title}
