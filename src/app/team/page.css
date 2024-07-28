@@ -1,0 +1,6 @@
+.bg {
+    background-image: url("/assets/images/AbstractDesign.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+}
