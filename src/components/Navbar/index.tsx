@@ -121,7 +121,7 @@ const Navbar = () => {
                   </div>
                   <Link
                     role="button"
-                    href="/"
+                    href="/contact"
                     className="bg-green-70 px-4 py-3 inline-flex text-[#262626] text-sm font-urbanist font-semibold leading-[21px] rounded-[6px]"
                   >
                     Contact Us

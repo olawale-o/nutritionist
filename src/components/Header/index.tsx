@@ -1,4 +1,10 @@
-const Hero = () => {
+const Header = ({
+  heading,
+  subHeading,
+}: {
+  heading: string;
+  subHeading: string;
+}) => {
   return (
     <section>
       <div className="max-w-[1758px] mx-auto">
@@ -35,19 +41,12 @@ const Hero = () => {
                   </div>
                   <div className="mt-[30px] xl:mt-[60px] 2xl:mt-20">
                     <h1 className="text-[28px] leading-[42px] font-semibold text-grey-15 text-center xl:text-[38px] xl:leading-[47px] 2xl:text-5xl 2xl:leading-[72px]">
-                      Meet Our Team of Experts
+                      {heading}
                     </h1>
                   </div>
                   <div className="mt-[6px] xl:mt-[10px] 2xl:mt-5">
                     <div className="text-grey-20 text-sm font-medium leading-[21px] text-center xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
-                      Our team at Nutritionist is composed of highly skilled
-                      professionals who are passionate about helping you achieve
-                      your health and wellness goals. With a diverse range of
-                      expertise in nutrition, coaching, and support, our team is
-                      dedicated to providing you with the guidance and
-                      personalized care you need. Get to know the experts behind
-                      our success and discover how they can make a positive
-                      impact on your journey to better health.
+                      {subHeading}
                     </div>
                   </div>
                 </div>
@@ -60,4 +59,4 @@ const Hero = () => {
   );
 };
 
-export { Hero };
+export { Header };
