@@ -23,7 +23,7 @@ const links = [
   {
     id: 5,
     title: "Process",
-    link: "/",
+    link: "/process",
   },
   {
     id: 6,
