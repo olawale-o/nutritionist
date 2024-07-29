@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Support } from "./components/Support";
 import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 
 export default function Page() {
   return (
@@ -11,6 +12,7 @@ export default function Page() {
       />
       <Support />
       <Contact />
+      <Footer />
     </main>
   );
 }

@@ -34,7 +34,7 @@ const JoinOurTeam = () => {
                   </div>
                 </div>
                 <div className="mt-5">
-                  <button className="rounded-[6px] bg-green-70 inline-flex py-[14px] px-6 text-grey-15 text-sm leading-normal font-semibold w-full justify-center 2xl:text-lg 2xl:leading-normal">
+                  <button className="rounded-[6px] bg-green-70 inline-flex py-[14px] px-6 text-grey-15 text-sm leading-normal font-semibold w-full justify-center 2xl:text-lg 2xl:leading-normal whitespace-nowrap">
                     Apply Now
                   </button>
                 </div>

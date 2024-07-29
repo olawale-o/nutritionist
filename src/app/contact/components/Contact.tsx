@@ -22,7 +22,7 @@ const ContactForm = () => {
             />
           </div>
         </div>
-        <div className="relative bg">
+        <div className="relative">
           <div className="w-full text-grey-30 text-base font-semibold mb-2 2xl:text-lg 2xl:leading-6">
             Phone Number
           </div>
@@ -31,7 +31,7 @@ const ContactForm = () => {
             placeholder="Enter your Number"
           />
         </div>
-        <div className="relative bg">
+        <div className="relative">
           <div className="w-full text-grey-30 text-base font-semibold mb-2 2xl:text-lg 2xl:leading-6">
             Message
           </div>
