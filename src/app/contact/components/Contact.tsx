@@ -134,16 +134,12 @@ const ContactMap = () => {
 const Contact = () => {
   return (
     <section>
-      <div className="max-w-[1758px] mx-auto">
-        <div className="px-4 xl:px-20 2xl:px-[162px]">
-          <div className="mt-[30px] xl:mt-20 2xl:mt-[100px]">
-            <div className="bg-green-95 rounded-xl border-[1px] border-solid border-green-85">
-              <div className="p-[30px] xl:p-[60px] 2xl:p-20">
-                <div className="grid grid-cols-1 gap-10 xl:grid-cols-2 2xl:gap-[50px]">
-                  <ContactForm />
-                  <ContactMap />
-                </div>
-              </div>
+      <div className="mt-[30px] xl:mt-20 2xl:mt-[100px]">
+        <div className="bg-green-95 rounded-xl border-[1px] border-solid border-green-85">
+          <div className="p-[30px] xl:p-[60px] 2xl:p-20">
+            <div className="grid grid-cols-1 gap-10 xl:grid-cols-2 2xl:gap-[50px]">
+              <ContactForm />
+              <ContactMap />
             </div>
           </div>
         </div>
