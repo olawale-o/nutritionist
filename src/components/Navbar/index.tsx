@@ -9,32 +9,28 @@ const links = [
   {
     id: 2,
     title: "About",
-    link: "/",
+    link: "/about",
   },
   {
     id: 3,
     title: "Team",
     link: "/team",
   },
+
   {
     id: 4,
-    title: "Home",
-    link: "/",
-  },
-  {
-    id: 5,
     title: "Process",
     link: "/process",
   },
   {
-    id: 6,
+    id: 5,
     title: "Pircing",
-    link: "/",
+    link: "/pricing",
   },
   {
-    id: 7,
+    id: 6,
     title: "Blog",
-    link: "/",
+    link: "/bog",
   },
 ];
 
