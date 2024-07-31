@@ -24,7 +24,7 @@ const links = [
   },
   {
     id: 5,
-    title: "Pircing",
+    title: "Pricing",
     link: "/pricing",
   },
   {
