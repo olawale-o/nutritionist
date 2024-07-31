@@ -1,0 +1,8 @@
+.gradient {
+    background: linear-gradient(
+        180deg,
+        rgba(203, 234, 123, 0) 0%,
+        #f6fbe9 100%
+    );
+    mix-blend-mode: luminosity;
+}
