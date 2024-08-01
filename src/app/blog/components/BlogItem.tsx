@@ -29,7 +29,7 @@ const BlogItem = ({
             </div>
           </div>
           <div className="p-[30px] xl:p-10 2xl:p-[50px]">
-            <div className="flex flex-col md:flex-row xl:items-center gap-6 2xl:gap-[30px]">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-6 2xl:gap-[30px]">
               <div>
                 <div className="text-grey-15 text-lg font-semibold leading-[27px] xl:text-[20px] xl:leading-[30px] 2xl:text-2xl 2xl:leading-9">
                   {article.title}
@@ -41,13 +41,14 @@ const BlogItem = ({
                   </div>
                 </div>
               </div>
-
-              <Link
-                href="/blog"
-                className="rounded-md bg-green-70 whitespace-nowrap py-[14px] px-[20px] font-semibold text-sm leading:[21px] 2xl:text-lg 2xl:leading-[27px]  2xl:py-[18px] 2xl:px-6"
-              >
-                Read More
-              </Link>
+              <div className="flex lg:justify-start">
+                <Link
+                  href="/blog"
+                  className="rounded-md bg-green-70 whitespace-nowrap py-[14px] px-[20px] font-semibold text-sm leading:[21px] 2xl:text-lg 2xl:leading-[27px]  2xl:py-[18px] 2xl:px-6"
+                >
+                  Read More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
