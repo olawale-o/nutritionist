@@ -6,10 +6,16 @@ import { Pricing } from "@/components/Pricing";
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Features />
-      <Blog />
-      <Pricing />
+      <div className="max-w-[1758px] mx-auto">
+        <div className="px-4 xl:px-20 2xl:px-[162px]">
+          <div className="mn-[50px] xl:mb-[80px] 2xl:mb-[100px]">
+            <Hero />
+            <Features />
+            <Blog />
+            <Pricing />
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
