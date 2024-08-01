@@ -30,7 +30,7 @@ const links = [
   {
     id: 6,
     title: "Blog",
-    link: "/bog",
+    link: "/blog",
   },
 ];
 
