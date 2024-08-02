@@ -5,8 +5,6 @@ import "./page.css";
 const Process = () => {
   return (
     <section>
-      {/* <div className="max-w-[1758px] mx-auto">
-        <div className="px-4 xl:px-20 2xl:px-[162px]"> */}
       <div className="mt-[50px]">
         <div>
           <h2 className="text-grey-15 text-[28px] xl:text-[38px] xl:leading-[57px] 2xl:text-[48px] 2xl:leading-[72px]  font-urbanist leading-[42px] font-bold text-center">
@@ -406,8 +404,6 @@ const Process = () => {
           </div>
         </div>
       </div>
-      {/* </div>
-      </div> */}
     </section>
   );
 };
