@@ -61,6 +61,88 @@ const stories = [
   },
 ];
 
+const Story = ({ story }: { story: any }) => {
+  return (
+    <div className="overflow-hidden w-full flex flex-col lg:flex-row lg:items-stretch lg:even:flex-row-reverse border-l-[1px] border-t-[1px] border-r-[1px] border-solid border-green-90 last:border-b-[1px] first:rounded-tr-xl first:rounded-tl-xl last:rounded-br-xl last:rounded-bl-xl">
+      {story.id % 2 == 0 ? (
+        <>
+          <div className="basis-1/2 overflow-hidden">
+            <figure className="relative aspect-[3/2] h-full overflow-hidden">
+              <div className="absolute inset-0 w-full h-full">
+                <img
+                  src={`/assets/images/story_${story.id}.png`}
+                  className="absolute inset-0 h-full object-contain block"
+                />
+              </div>
+            </figure>
+          </div>
+
+          <div className="w-full pt-[11px] bg-green-70 lg:basis-[12px] lg:pt-0  self-stretch" />
+
+          <div className="lg:flex basis-1/2">
+            <div className="bg-green-95 flex flex-grow">
+              <div className="p-[30px] xl:p-[60px] 2xl:p-20">
+                <div className="flex flex-col lg:items-end">
+                  <h3 className="w-max text-grey-15 font-semibold leading:normal text-[20px] xl:text-2xl 2xl:text-[28px] relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[3px] after:bg-green-70">
+                    {story.title}
+                  </h3>
+                  <div className="mt-5 xl:mt-[30px] 2xl:mt-10">
+                    <div className="font-medium text-grey-20 text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px] lg:text-end">
+                      {story.text}
+                    </div>
+                  </div>
+                  <div className="mt-5 xl:mt-[30px] 2xl:mt-10">
+                    <div className="font-semibold text-grey-20 text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
+                      {story.date}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="basis-1/2 overflow-hidden">
+            <figure className="relative aspect-[3/2] h-full overflow-hidden">
+              <div className="absolute inset-0 w-full h-full">
+                <img
+                  src={`/assets/images/story_${story.id}.png`}
+                  className="absolute inset-0 h-full object-contain block"
+                />
+              </div>
+            </figure>
+          </div>
+
+          <div className="w-full pt-[11px] bg-green-70 lg:basis-[12px] lg:pt-0  self-stretch" />
+
+          <div className="lg:flex basis-1/2">
+            <div className="bg-green-95">
+              <div className="p-[30px] xl:p-[60px] 2xl:p-20">
+                <div className="flex flex-col">
+                  <h3 className="w-max text-grey-15 font-semibold leading:normal text-[20px] xl:text-2xl 2xl:text-[28px] relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[3px] after:bg-green-70">
+                    {story.title}
+                  </h3>
+                  <div className="mt-5 xl:mt-[30px] 2xl:mt-10">
+                    <div className="font-medium text-grey-20 text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
+                      {story.text}
+                    </div>
+                  </div>
+                  <div className="mt-5 xl:mt-[30px] 2xl:mt-10">
+                    <div className="font-semibold text-grey-20 text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
+                      {story.date}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
 const OurStory = () => (
   <section>
     <div>
@@ -79,47 +161,9 @@ const OurStory = () => (
         </div>
       </div>
       <div className="mt-[50px] xl:mt-[60px] 2xl:mt-20">
-        <div className="grid grid-cols-1">
-          {stories.map((story, i: number) => (
-            <div className="col-span-1" key={story.id}>
-              <div className="grid grid-cols-1 xl:grid-cols-2">
-                <div className="col-span-1">
-                  <div className="bg-yellow-50">
-                    <figure className="relative bg-red-900 aspect-[4/3] rounded-tr-xl rounded-tl-xl">
-                      <div className="absolute inset-0 w-full h-full">
-                        <img
-                          src={`/assets/images/story_${story.id}.png`}
-                          className="absolute inset-0 h-full object-cover block rounded-tr-xl rounded-tl-xl"
-                        />
-                      </div>
-                    </figure>
-                  </div>
-                </div>
-                <div className="col-span-1 flex">
-                  <div className="bg-green-95 flex">
-                    <div className="p-[30px] xl:p-[60px] 2xl:p-20">
-                      <div>
-                        <h3 className="w-max text-grey-15 font-semibold leading:normal text-[20px] xl:text-2xl 2xl:text-[28px] relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[3px] after:bg-green-70">
-                          {story.title}
-                        </h3>
-                        <div className="mt-5 xl:mt-[30px] 2xl:mt-10">
-                          <div className="font-medium text-grey-20 text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
-                            {story.text}
-                          </div>
-                        </div>
-                        <div className="mt-5 xl:mt-[30px] 2xl:mt-10">
-                          <div className="font-semibold text-grey-20 text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
-                            {story.date}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {stories.map((story, i: number) => (
+          <Story key={story.id} story={story} />
+        ))}
       </div>
     </div>
   </section>

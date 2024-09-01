@@ -1,5 +1,3 @@
-import { Rock_3D } from "next/font/google";
-
 const plans = [
   {
     id: 1,
@@ -132,3 +130,14 @@ const features = [
     },
   },
 ];
+
+const faqs = [
+  "What is personalized nutrition coaching?",
+  "How can nutrition coaching help me lose weight?",
+  "Can I still enjoy my favorite foods while on a nutrition plan?",
+  "How often will I have contact with my nutritionist?",
+  "How long will it take to see results?",
+  "Are the meal plans and recipes provided suitable for vegetarians or vegans?",
+];
+
+export { plans, features, faqs };
