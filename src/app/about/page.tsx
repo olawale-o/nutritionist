@@ -3,6 +3,24 @@ import { OurStory } from "./components/OurStory";
 import { Welcome } from "./components/Welcome";
 import { Footer } from "./components/Footer";
 
+const Intro = () => {
+  return (
+    <div className="mt-[30px] xl:mt-20 2xl:mt-[100px]">
+      <div className="grid grid-cols-6 gap-[10.19px]">
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+        <div className="col-span-2 row-span-2 bg-green-80 h-full rounded-lg"></div>
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+        <div className="col-span-1 bg-green-80 h-[194px] rounded-lg"></div>
+      </div>
+    </div>
+  );
+};
+
 export default function Page() {
   return (
     <main>

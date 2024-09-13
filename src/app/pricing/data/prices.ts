@@ -38,6 +38,19 @@ const plans = [
   },
 ];
 
+const basic = [
+  true,
+  true,
+  true,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+];
+
 const features = [
   {
     id: 1,
@@ -140,4 +153,4 @@ const faqs = [
   "Are the meal plans and recipes provided suitable for vegetarians or vegans?",
 ];
 
-export { plans, features, faqs };
+export { plans, features, faqs, basic };
