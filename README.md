@@ -1,5 +1,9 @@
 ## Nutritionist
 
+## Screenshot
+
+![screenshot](https://github.com/olawale-o/nutritionist/blob/main/src/assets/images/screenshot.png?raw=true")
+
 
 ## Acknowledgement
 - [produce ui](https://produce-ui.com/)
