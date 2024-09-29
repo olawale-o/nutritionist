@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useReducer, useRef } from "react";
-import { FileActionKind, FileProgress } from "./interface";
-import axios, { CanceledError } from "axios";
+import { AppState, FileActionKind, FileProgress } from "./interface";
+import axios, { AxiosError, CanceledError } from "axios";
 import { Upload } from "./components/Upload";
 import { reducerFn } from "./useUpload";
 
@@ -16,9 +16,6 @@ const FileUpload = () => {
     ([k, file]) => file.isCancelled === false,
   ).length;
   const selectedFile = useRef<HTMLInputElement>(null);
-
-  const retryUpload = (id: number) =>
-    dispatch({ type: FileActionKind.RETRY_UPLOAD, payload: { id } });
 
   const handleAttachFile = () => {
     if (selectedFile?.current) {
@@ -57,19 +54,27 @@ const FileUpload = () => {
                   },
                 });
               },
-            });
-            dispatch({
-              type: FileActionKind.SET_UPLOAD_SUCCESS,
-              payload: { id: file.id },
+            }).then((response) => {
+              console.log(response);
+              dispatch({
+                type: FileActionKind.SET_UPLOAD_SUCCESS,
+                payload: { id: file.id, fileId: response.data.file },
+              });
             });
           } catch (e) {
-            console.log(e);
+            // throw new Error(e);
+            // if (e instanceof AxiosError) {
+            //   console.log(e);
+            //   if (e.message === "Network Error") {
+            //     console.log("Net work erro");
+            //   }
+            // }
             if (e instanceof CanceledError) {
               if (e?.config?.signal instanceof AbortSignal) {
-                console.log(e?.config?.signal?.reason);
+                console.log({ here: e?.config?.signal?.reason });
+                file.controller.abort();
               }
             }
-            file.controller.abort();
             dispatch({
               type: FileActionKind.SET_UPLOAD_FAILURE,
               payload: { id: file.id },
@@ -77,20 +82,31 @@ const FileUpload = () => {
           }
         });
       } catch (e) {
+        console.log("Other error");
         console.error(e);
       }
     },
     [dispatch],
   );
 
+  const retryUpload = (id: number) => {
+    dispatch({ type: FileActionKind.RETRY_UPLOAD, payload: { id } });
+    const appState: AppState = state;
+
+    const fileToReupload = [appState.fileProgress[`${id}`]];
+    uploadToServer(fileToReupload);
+  };
+  const deleteUpload = (id: number) => {
+    dispatch({ type: FileActionKind.DELETE_UPLOAD, payload: { id } });
+  };
+
   useEffect(() => {
-    if (totalFileUpload || cancelUploads) {
-      const fileToUpload = attachedFiles.filter(
-        ([k, file]) => file.progress === 0,
-      );
-      uploadToServer(fileToUpload.map(([k, file]) => file));
-    }
-  }, [totalFileUpload, cancelUploads, attachedFiles, uploadToServer]);
+    // if (totalFileUpload > 0) {
+    const fileToUpload = attachedFiles.filter(
+      ([k, file]) => file.progress === 0,
+    );
+    uploadToServer(fileToUpload.map(([k, file]) => file));
+  }, [totalFileUpload, uploadToServer]);
 
   const openFileUpload = () => {
     selectedFile?.current?.click();
@@ -178,12 +194,13 @@ const FileUpload = () => {
             <div className="mt-4 max-w-[445px] mx-auto">
               <div>
                 <h2>Uploading - {totalFileUpload} files</h2>
-                <div className="relative mt-[10px] flex flex-col gap-[10px]">
+                <div className="relative mt-[10px] flex flex-col gap-[10px] max-h-36 overflow-y-scroll">
                   {attachedFiles?.map(([k, upload], i) => (
                     <Upload
                       key={upload.id}
                       upload={upload}
                       retryUpload={() => retryUpload(upload.id)}
+                      deleteUpload={() => deleteUpload(upload.id)}
                     />
                   ))}
                 </div>

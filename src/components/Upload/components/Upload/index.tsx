@@ -5,9 +5,10 @@ import { UPLOAD_STATUS } from "../../constants";
 type UploadProps = {
   upload: FileProgress;
   retryUpload: () => void;
+  deleteUpload: () => void;
 };
 
-const Upload = ({ upload, retryUpload }: UploadProps) => {
+const Upload = ({ upload, retryUpload, deleteUpload }: UploadProps) => {
   const renderIcon = useMemo(() => {
     const cancelUpload = () => {
       console.log("Cancel");
@@ -57,7 +58,7 @@ const Upload = ({ upload, retryUpload }: UploadProps) => {
     } else if (upload.status === UPLOAD_STATUS.success) {
       return (
         <div className="self-end flex space-x-2">
-          <button type="button" onClick={retryUpload}>
+          <button type="button" onClick={deleteUpload}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -103,7 +104,7 @@ const Upload = ({ upload, retryUpload }: UploadProps) => {
               />
             </svg>
           </button>
-          <button type="button" onClick={retryUpload}>
+          <button type="button" onClick={deleteUpload}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -134,7 +135,7 @@ const Upload = ({ upload, retryUpload }: UploadProps) => {
       );
     }
     return null;
-  }, [upload.status, retryUpload, upload.controller]);
+  }, [upload.status, retryUpload, upload.controller, deleteUpload]);
 
   return (
     <div className="relative h-auto pt-2  pb-[10px] rounded-[4px] bg-white border-solid border-[0.5px] border-[#E3E3E3]">

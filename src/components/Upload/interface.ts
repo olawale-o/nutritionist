@@ -16,6 +16,7 @@ export interface FileProgress {
   controller: AbortController;
   status?: UPLOAD_STATUS;
   isCancelled?: boolean;
+  fileId?: string;
 }
 
 export interface State {
@@ -28,6 +29,7 @@ export enum FileActionKind {
   SET_UPLOAD_SUCCESS = "SET_UPLOAD_SUCCESS",
   SET_UPLOAD_FAILURE = "SET_UPLOAD_FAILURE",
   RETRY_UPLOAD = "RETRY_UPLOAD",
+  DELETE_UPLOAD = "DELETE_UPLOAD",
 }
 
 export type FileAction = {

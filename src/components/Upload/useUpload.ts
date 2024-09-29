@@ -85,6 +85,15 @@ function reducerFn(state: AppState, action: FileAction) {
         },
       };
     }
+    case "DELETE_UPLOAD": {
+      const newState = { ...state.fileProgress };
+      delete newState[action.payload.id];
+      return {
+        fileProgress: {
+          ...newState,
+        },
+      };
+    }
   }
   throw Error("Unknown action: " + action.type);
 }
