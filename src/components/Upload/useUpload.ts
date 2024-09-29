@@ -94,6 +94,19 @@ function reducerFn(state: AppState, action: FileAction) {
         },
       };
     }
+    case "PAUSE_UPLOAD": {
+      // TODO
+      return {
+        ...state,
+        fileProgress: {
+          ...state.fileProgress,
+          [action.payload.id]: {
+            ...state.fileProgress[action.payload.id],
+            progress: action.payload.progress,
+          },
+        },
+      };
+    }
   }
   throw Error("Unknown action: " + action.type);
 }

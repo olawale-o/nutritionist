@@ -30,6 +30,7 @@ export enum FileActionKind {
   SET_UPLOAD_FAILURE = "SET_UPLOAD_FAILURE",
   RETRY_UPLOAD = "RETRY_UPLOAD",
   DELETE_UPLOAD = "DELETE_UPLOAD",
+  PAUSE_UPLOAD = "PAUSE_UPLOAD",
 }
 
 export type FileAction = {
