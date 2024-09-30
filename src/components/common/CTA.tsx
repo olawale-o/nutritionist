@@ -1,9 +1,16 @@
 "use client";
-import { useRef } from "react";
 import { useInView } from "framer-motion";
-import "./style.css";
+import { useRef } from "react";
 
-const JoinOurTeam = () => {
+const CTA = ({
+  title,
+  description,
+  buttonLabel,
+}: {
+  title: string;
+  description: string;
+  buttonLabel: string;
+}) => {
   const container = useRef(null);
   const isInView = useInView(container, { once: true });
   return (
@@ -20,7 +27,7 @@ const JoinOurTeam = () => {
               <img src="/assets/images/team-flower.svg" />
             </figure>
           </div>
-          <div className="relative z-20 xl:flex xl:flex-row xl:justify-between">
+          <div className="relative z-20 xl:flex xl:flex-row xl:gap-[150px]">
             <div
               className=""
               style={{
@@ -30,15 +37,12 @@ const JoinOurTeam = () => {
               }}
             >
               <div>
-                <h2 className="text-grey-15 text-[28px] xl:text-[38px] xl:leading-[57px] 2xl:text-[48px] 2xl:leading-[72px]  font-urbanist leading-[42px] font-bold text-center xl:text-start">
-                  Join Our Team
+                <h2 className="text-grey-15 text-[22px] xl:text-[26px] xl:leading-[39px] 2xl:text-[34px] 2xl:leading-[51px]  font-urbanist leading-[33px] font-semibold text-center xl:text-start">
+                  {title}
                 </h2>
                 <div className="mt-[6px] xl:max-w-[780px] 2xl:max-w-[996px] mx-auto">
                   <div className="text-sm text-grey-20 leading-[21px] font-medium text-center xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px] xl:text-start">
-                    We are always on the lookout for talented individuals who
-                    are enthusiastic about making a difference. Explore our
-                    career opportunities and join us in our mission to help
-                    people achieve their health and wellness goals.
+                    {description}
                   </div>
                 </div>
               </div>
@@ -52,7 +56,7 @@ const JoinOurTeam = () => {
               className="mt-5"
             >
               <button className="rounded-[6px] bg-green-70 inline-flex py-[14px] px-6 text-grey-15 text-sm leading-normal font-semibold w-full justify-center 2xl:text-lg 2xl:leading-normal whitespace-nowrap">
-                Apply Now
+                {buttonLabel}
               </button>
             </div>
           </div>
@@ -62,4 +66,4 @@ const JoinOurTeam = () => {
   );
 };
 
-export { JoinOurTeam };
+export { CTA };
