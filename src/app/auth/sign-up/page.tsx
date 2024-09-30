@@ -1,11 +1,10 @@
 import { getLoggedInUser } from "@/lib/server/appwrite";
+import { SignUpPage } from "@/components/Auth/Sign-Up";
 import { redirect } from "next/navigation";
-import { UploadPage } from "@/components/Upload";
 
 export default async function Page() {
   const user = await getLoggedInUser();
+  if (user) redirect("/uploads");
 
-  if (!user) redirect("/auth/sign-in");
-
-  return <UploadPage />;
+  return <SignUpPage />;
 }
