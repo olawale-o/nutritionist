@@ -40,13 +40,19 @@ const Faq = ({
                   transition={{ duration: 0.8 }}
                   className="xl:mt-[14px] 2xl:mt-5"
                 >
-                  <div className="text-grey-20 font-medium text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
+                  <motion.div
+                    variants={{
+                      collapsed: { color: "white" },
+                      open: { color: "#333333" },
+                    }}
+                    className="text-grey-20 font-medium text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]"
+                  >
                     Personalized nutrition coaching involves creating a
                     customized nutrition plan based on your unique goals,
                     preferences, and dietary requirements. Our team of experts
                     will work closely with you to develop a plan that fits your
                     lifestyle and helps you achieve optimal health and wellness.
-                  </div>
+                  </motion.div>
                 </motion.div>
               </motion.div>
             )}
