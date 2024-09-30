@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
-import { JoinOurTeam } from "./components/JoinOurTeam";
 import { Teams } from "./components/Teams";
 import "./page.css";
+import { CTA } from "@/components/common/CTA";
 
 export default function Team() {
   return (
@@ -21,7 +21,14 @@ export default function Team() {
                 impact on your journey to better health."
             />
             <Teams />
-            <JoinOurTeam />
+            <CTA
+              title="Join Our Team"
+              description="We are always on the lookout for talented individuals who
+            are enthusiastic about making a difference. Explore our
+            career opportunities and join us in our mission to help
+            people achieve their health and wellness goals."
+              buttonLabel="Apply Now"
+            />
           </div>
         </div>
       </div>

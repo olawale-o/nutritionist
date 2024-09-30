@@ -1,7 +1,7 @@
 import { Achievements } from "./components/Achievements";
 import { OurStory } from "./components/OurStory";
 import { Welcome } from "./components/Welcome";
-import { Footer } from "./components/Footer";
+import { CTA } from "@/components/common/CTA";
 
 const Intro = () => {
   return (
@@ -29,7 +29,11 @@ export default function Page() {
           <Welcome />
           <OurStory />
           <Achievements />
-          <Footer />
+          <CTA
+            title="We Are Proud of Our Achievements"
+            description="But our ultimate satisfaction comes from seeing our clients achieve their goals and live healthier, happier lives. Join Nutritionist today and embark on your own transformative journey towards optimal health and well-being."
+            buttonLabel="Book a Demo"
+          />
         </div>
       </div>
     </main>

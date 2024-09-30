@@ -1,8 +1,13 @@
+"use client";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import "./style.css";
 
 const JoinOurTeam = () => {
+  const container = useRef(null);
+  const isInView = useInView(container, { once: true });
   return (
-    <section>
+    <section ref={container}>
       <div className="my-[50px] xl:my-[100px] 2xl:my-[150px]">
         <div className="relative p-10 rounded-[10px] border-solid border-[1px] border-green-85 bg-green-95 overflow-hidden xl:p-[60px] 2xl:p-20">
           <div className="absolute -left-[50px] -top-[30px]">
@@ -16,7 +21,14 @@ const JoinOurTeam = () => {
             </figure>
           </div>
           <div className="relative z-20 xl:flex xl:flex-row xl:justify-between">
-            <div className="">
+            <div
+              className=""
+              style={{
+                transform: isInView ? "none" : "translateX(-10px)",
+                opacity: isInView ? "1" : "0",
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              }}
+            >
               <div>
                 <h2 className="text-grey-15 text-[28px] xl:text-[38px] xl:leading-[57px] 2xl:text-[48px] 2xl:leading-[72px]  font-urbanist leading-[42px] font-bold text-center xl:text-start">
                   Join Our Team
@@ -31,7 +43,14 @@ const JoinOurTeam = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-5">
+            <div
+              style={{
+                transform: isInView ? "none" : "translateX(10px)",
+                opacity: isInView ? "1" : "0",
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              }}
+              className="mt-5"
+            >
               <button className="rounded-[6px] bg-green-70 inline-flex py-[14px] px-6 text-grey-15 text-sm leading-normal font-semibold w-full justify-center 2xl:text-lg 2xl:leading-normal whitespace-nowrap">
                 Apply Now
               </button>

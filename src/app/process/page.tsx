@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
-import { Footer } from "./components/Footer";
 import "./page.css";
+import { CTA } from "@/components/common/CTA";
 
 const Process = () => {
   return (
@@ -419,7 +419,13 @@ export default function Page() {
               subHeading="At Nutritionist, we believe in providing a personalized and comprehensive approach to help you achieve your health and wellness goals. Our How it Works process is designed to guide you through each step of your journey, ensuring that you receive the support, knowledge, and tools you need to succeed. Here's a detailed breakdown of our process:"
             />
             <Process />
-            <Footer />
+            <CTA
+              title="Are you ready to embark on a transformative journey towards
+            better health and wellness?"
+              description="Join us at Nutritionist and let us guide you on the path to a
+            healthier and happier you."
+              buttonLabel="Join Us Now"
+            />
           </div>
         </div>
       </div>

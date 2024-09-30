@@ -1,6 +1,6 @@
 const Footer = () => (
   <section>
-    <div className="mt-[50px] xl:mt-[100px] 2xl:mt-[150px]">
+    <div className="my-[50px] xl:my-[100px] 2xl:my-[150px]">
       <div className="relative p-10 rounded-[10px] border-solid border-[1px] border-green-85 bg-green-95 overflow-hidden xl:p-[60px] 2xl:p-20">
         <div className="absolute -left-[50px] -top-[30px]">
           <figure>
