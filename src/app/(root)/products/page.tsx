@@ -15,10 +15,10 @@ function unsafe_createSequentialProcesses<T extends any[], R>(
 }
 
 export default function Page() {
-  const [first, second, third] = unsafe_createSequentialProcesses(
-    () => new Promise((resolve) => setTimeout(() => resolve("First"), 5000)),
-    () => new Promise((resolve) => setTimeout(() => resolve("Second"), 10000)),
-    () => new Promise((resolve) => setTimeout(() => resolve("Thirds"), 15000)),
-  );
+  const [first, second, third] = [
+    new Promise((resolve) => setTimeout(() => resolve("First"), 5000)),
+    new Promise((resolve) => setTimeout(() => resolve("Second"), 10000)),
+    new Promise((resolve) => setTimeout(() => resolve("Thirds"), 15000)),
+  ];
   return <ProductPage first={first} second={second} third={third} />;
 }
