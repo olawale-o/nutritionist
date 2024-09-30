@@ -70,7 +70,7 @@ const Teams = () => {
               <div className="col-span-1" key={team.id}>
                 <div className="relative">
                   <div className="pb-[60px]">
-                    <figure className="relative w-full h-full aspect-square rounded-lg bg-red-900">
+                    <figure className="relative w-full h-full aspect-square rounded-lg">
                       <div className="absolute w-full h-full inset-0 rounded-lg">
                         <img
                           src={team.img}
