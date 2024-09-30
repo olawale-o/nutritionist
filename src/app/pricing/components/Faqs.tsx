@@ -1,4 +1,118 @@
+"use client";
+import { Dispatch, SetStateAction, useState } from "react";
 import { faqs } from "../data/prices";
+import { AnimatePresence, motion } from "framer-motion";
+
+const Faq = ({
+  i,
+  expanded,
+  setExpanded,
+  faq,
+}: {
+  i: number;
+  expanded: boolean | number;
+  setExpanded: Dispatch<SetStateAction<number>>;
+  faq: string;
+}) => {
+  const isOpen = i === expanded;
+  return (
+    <div>
+      <div className="flex items-start">
+        <div className="flex-grow">
+          <div className="text-grey-15 font-medium text-base xl:text-lg xl:leading-normal 2xl:text-[20px]">
+            {faq}
+          </div>
+          <AnimatePresence initial={false}>
+            {isOpen && (
+              <motion.div
+                key="content"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto" },
+                  collapsed: { opacity: 0, height: 0 },
+                }}
+                transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+              >
+                <motion.div
+                  variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
+                  transition={{ duration: 0.8 }}
+                  className="xl:mt-[14px] 2xl:mt-5"
+                >
+                  <div className="text-grey-20 font-medium text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
+                    Personalized nutrition coaching involves creating a
+                    customized nutrition plan based on your unique goals,
+                    preferences, and dietary requirements. Our team of experts
+                    will work closely with you to develop a plan that fits your
+                    lifestyle and helps you achieve optimal health and wellness.
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        <motion.button
+          initial={false}
+          onClick={() => setExpanded(isOpen ? -1 : i)}
+          className="rounded-[4px] p-3 bg-green-20 inline-flex justify-center items-center self-start"
+        >
+          {isOpen ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M7.5364 6.2636C7.18492 5.91213 6.61508 5.91213 6.2636 6.2636C5.91213 6.61508 5.91213 7.18492 6.2636 7.5364L10.7272 12L6.2636 16.4636C5.91213 16.8151 5.91213 17.3849 6.2636 17.7364C6.61508 18.0879 7.18492 18.0879 7.5364 17.7364L12 13.2728L16.4636 17.7364C16.8151 18.0879 17.3849 18.0879 17.7364 17.7364C18.0879 17.3849 18.0879 16.8151 17.7364 16.4636L13.2728 12L17.7364 7.5364C18.0879 7.18492 18.0879 6.61508 17.7364 6.2636C17.3849 5.91213 16.8151 5.91213 16.4636 6.2636L12 10.7272L7.5364 6.2636Z"
+                fill="white"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M10.75 4.75C10.75 4.33579 10.4142 4 10 4C9.58579 4 9.25 4.33579 9.25 4.75V9.25H4.75C4.33579 9.25 4 9.58579 4 10C4 10.4142 4.33579 10.75 4.75 10.75L9.25 10.75V15.25C9.25 15.6642 9.58579 16 10 16C10.4142 16 10.75 15.6642 10.75 15.25V10.75L15.25 10.75C15.6642 10.75 16 10.4142 16 10C16 9.58579 15.6642 9.25 15.25 9.25H10.75V4.75Z"
+                fill="white"
+              />
+            </svg>
+          )}
+        </motion.button>
+      </div>
+      {i !== faqs.length - 1 && (
+        <div className="w-full bg-green-85 h-px my-[22px]  2xl:my-7" />
+      )}
+    </div>
+  );
+};
+
+const FaqList = () => {
+  const [expanded, setExpanded] = useState(0);
+  return (
+    <div className="col-span-1 lg:col-span-2">
+      <div className="rounded-xl border-solid border-[1px] border-green-85 bg-green-95">
+        <div className="p-[30px] xl:p-[50px] 2xl:p-[60px]">
+          {faqs.map((faq, i) => (
+            <Faq
+              key={i}
+              i={i}
+              expanded={expanded}
+              setExpanded={setExpanded}
+              faq={faq}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Faqs = () => {
   return (
@@ -19,54 +133,7 @@ const Faqs = () => {
       </div>
       <div className="mt-[60px] xl:mt-[60px] 2xl:mt-20">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-          <div className="col-span-1 lg:col-span-2">
-            <div className="rounded-xl border-solid border-[1px] border-green-85 bg-green-95">
-              <div className="p-[30px] xl:p-[50px] 2xl:p-[60px]">
-                {faqs.map((faq, i) => (
-                  <div key={i}>
-                    <div className="flex items-start">
-                      <div>
-                        <div className="text-grey-15 font-medium text-base xl:text-lg xl:leading-normal 2xl:text-[20px]">
-                          {faq}
-                        </div>
-
-                        <div className="xl:mt-[14px] 2xl:mt-5">
-                          <div className="text-grey-20 font-medium text-sm leading-[21px] xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
-                            Personalized nutrition coaching involves creating a
-                            customized nutrition plan based on your unique
-                            goals, preferences, and dietary requirements. Our
-                            team of experts will work closely with you to
-                            develop a plan that fits your lifestyle and helps
-                            you achieve optimal health and wellness.
-                          </div>
-                        </div>
-                      </div>
-                      <button className="rounded-[4px] p-3 bg-green-20 inline-flex justify-center items-center self-start">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                        >
-                          <path
-                            d="M10.75 4.75C10.75 4.33579 10.4142 4 10 4C9.58579 4 9.25 4.33579 9.25 4.75V9.25H4.75C4.33579 9.25 4 9.58579 4 10C4 10.4142 4.33579 10.75 4.75 10.75L9.25 10.75V15.25C9.25 15.6642 9.58579 16 10 16C10.4142 16 10.75 15.6642 10.75 15.25V10.75L15.25 10.75C15.6642 10.75 16 10.4142 16 10C16 9.58579 15.6642 9.25 15.25 9.25H10.75V4.75Z"
-                            fill="white"
-                          />
-                        </svg>
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M7.5364 6.2636C7.18492 5.91213 6.61508 5.91213 6.2636 6.2636C5.91213 6.61508 5.91213 7.18492 6.2636 7.5364L10.7272 12L6.2636 16.4636C5.91213 16.8151 5.91213 17.3849 6.2636 17.7364C6.61508 18.0879 7.18492 18.0879 7.5364 17.7364L12 13.2728L16.4636 17.7364C16.8151 18.0879 17.3849 18.0879 17.7364 17.7364C18.0879 17.3849 18.0879 16.8151 17.7364 16.4636L13.2728 12L17.7364 7.5364C18.0879 7.18492 18.0879 6.61508 17.7364 6.2636C17.3849 5.91213 16.8151 5.91213 16.4636 6.2636L12 10.7272L7.5364 6.2636Z" fill="white"/>
-                        </svg> */}
-                      </button>
-                    </div>
-                    {i !== faqs.length - 1 && (
-                      <div className="w-full bg-green-85 h-px my-[22px]  2xl:my-7" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <FaqList />
           <div className="col-span-1">
             <div className="rounded-xl bg-green-95 border-solid border-[1px] border-green-85">
               <div className="py-[50px] px-6 xl:py-[60px]">
