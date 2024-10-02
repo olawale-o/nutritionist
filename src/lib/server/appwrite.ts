@@ -1,7 +1,14 @@
 "use server";
-import { Client, Account } from "node-appwrite";
+import {
+  Client,
+  Account,
+  Databases,
+  Query,
+  Permission,
+  Role,
+  ID,
+} from "node-appwrite";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export async function createSessionClient() {
   const client = new Client()
@@ -49,8 +56,6 @@ export async function logOut() {
     const { account } = await createSessionClient();
 
     const result = await account.deleteSession("current");
-
-    console.log(result);
   } catch (error) {
     console.log(error);
   }
