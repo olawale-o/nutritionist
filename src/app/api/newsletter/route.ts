@@ -10,7 +10,7 @@ async function getRuns(eventId: string) {
     `https://api.inngest.com/v1/events/${eventId}/runs`,
     {
       headers: {
-        Authorization: `Bearer ${process.env.NEXT_INNGEST_SIGNING_KEY}`,
+        Authorization: `Bearer aCZq30is3cpfNaHSOsLawI82TVo2Ws4JXfZrEm6oGQhiB_SpnTd-D-8vB3Re2b62PS_GhPKFKluIQ5eYvdAs7A`,
       },
     },
   );
