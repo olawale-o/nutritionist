@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useReducer, useRef } from "react";
 import { AppState, FileActionKind, FileProgress } from "./interface";
-import axios, { AxiosError, CanceledError } from "axios";
+import axios, { CanceledError } from "axios";
 import { Upload } from "./components/Upload";
 import { reducerFn } from "./useUpload";
 
