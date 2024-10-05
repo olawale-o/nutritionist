@@ -5,6 +5,7 @@ import { AppState, FileActionKind, FileProgress } from "./interface";
 import { Upload } from "./components/Upload";
 import { reducerFn } from "./useUpload";
 import { generateSignature } from "./utils/signature";
+import { CloudUploads } from "./CloudUploads";
 
 // define expiry (e.g. 120 seconds)
 const expire = (Math.round(Date.now() / 1000) + 120).toString();
@@ -140,7 +141,7 @@ const FileUpload = () => {
     selectedFile?.current?.click();
   };
   return (
-    <div className="my-20 max-w-[540px] h-full max-h-[620px] w-full mx-auto rounded-[4px] shadow-[0px_6px_8px_0px_rgba(0,0,0,0.05)] bg-white">
+    <div className="col-span-1 h-full max-h-[620px] w-full rounded-[4px] shadow-[0px_6px_8px_0px_rgba(0,0,0,0.05)] bg-white ">
       <div className="flex flex-col w-full">
         <div>
           <div className="mt-[30px]">
@@ -254,7 +255,14 @@ const FileUpload = () => {
 };
 
 const UploadPage = () => {
-  return <FileUpload />;
+  return (
+    <div className="my-20 max-w-[1024px] mx-auto">
+      <div className="grid grid-cols-2 gap-4">
+        <FileUpload />
+        <CloudUploads />
+      </div>
+    </div>
+  );
 };
 
 export { UploadPage };
