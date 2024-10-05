@@ -1,9 +1,14 @@
 "use client";
 import { useCallback, useEffect, useReducer, useRef } from "react";
-import { AppState, FileActionKind, FileProgress } from "./interface";
 import axios, { CanceledError } from "axios";
+import { AppState, FileActionKind, FileProgress } from "./interface";
 import { Upload } from "./components/Upload";
 import { reducerFn } from "./useUpload";
+import { generateSignature } from "./utils/signature";
+
+// define expiry (e.g. 120 seconds)
+const expire = (Math.round(Date.now() / 1000) + 120).toString();
+const signature = generateSignature(expire);
 
 const FileUpload = () => {
   const [state, dispatch] = useReducer(reducerFn, { fileProgress: {} });
@@ -30,12 +35,15 @@ const FileUpload = () => {
         files.forEach(async (file) => {
           try {
             const formData = new FormData();
-            formData.append("file", file.file);
+            formData.append("signature", signature);
+            formData.append("expire", expire);
             formData.append("UPLOADCARE_STORE", "auto");
             formData.append(
               "UPLOADCARE_PUB_KEY",
               `${process.env.NEXT_PUBLIC_UPLOADCARE_PUB_KEY}`,
             );
+            formData.append("file", file.file);
+
             await axios({
               baseURL: process.env.NEXT_PUBLIC_UPLOADCARE_URL,
               url: "/base/",
@@ -62,6 +70,7 @@ const FileUpload = () => {
               });
             });
           } catch (e) {
+            console.log(e);
             // throw new Error(e);
             // if (e instanceof AxiosError) {
             //   console.log(e);
