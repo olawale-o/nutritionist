@@ -4,7 +4,6 @@ import { AppState, FileActionKind, FileProgress } from "./interface";
 import axios, { AxiosError, CanceledError } from "axios";
 import { Upload } from "./components/Upload";
 import { reducerFn } from "./useUpload";
-import { logOut } from "@/lib/server/appwrite";
 import { useRouter } from "next/navigation";
 
 const FileUpload = () => {
@@ -114,15 +113,9 @@ const FileUpload = () => {
   const openFileUpload = () => {
     selectedFile?.current?.click();
   };
-
-  const onLogOut = async () => {
-    logOut().then(() => {
-      router.replace("/auth/sign-in");
-    });
-  };
   return (
     <div className="my-20 max-w-[540px] h-full max-h-[620px] w-full mx-auto rounded-[4px] shadow-[0px_6px_8px_0px_rgba(0,0,0,0.05)] bg-white">
-      <button type="button" onClick={onLogOut}>
+      <button type="button" onClick={() => {}}>
         Log Out
       </button>
       <div className="flex flex-col w-full">
