@@ -16,7 +16,7 @@ export interface FileProgress {
   controller: AbortController;
   status?: UPLOAD_STATUS;
   isCancelled?: boolean;
-  fileId?: string;
+  fileId: string;
 }
 
 export interface State {

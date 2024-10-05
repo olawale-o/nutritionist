@@ -105,8 +105,27 @@ const FileUpload = () => {
     const fileToReupload = [appState.fileProgress[`${id}`]];
     uploadToServer(fileToReupload);
   };
-  const deleteUpload = (id: number) => {
+
+  const deleteUpload = async (id: number, fileId: string) => {
     dispatch({ type: FileActionKind.DELETE_UPLOAD, payload: { id } });
+
+    try {
+      const formData = new FormData();
+      formData.append(
+        "Authorization",
+        `Uploadcare.Simple${process.env.NEXT_PUBLIC_UPLOADCARE_PUB_KEY}:${process.env.NEXT_PUBLIC_UPLOADCARE_SECRET_KEY}`,
+      );
+      await axios({
+        baseURL: "https://api.uploadcare.com",
+        url: "/files/{uuid}/storage/",
+        method: "delete",
+      }).then((response) => {
+        console.log(response);
+        dispatch({ type: FileActionKind.DELETE_UPLOAD, payload: { id } });
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
@@ -209,7 +228,9 @@ const FileUpload = () => {
                       key={upload.id}
                       upload={upload}
                       retryUpload={() => retryUpload(upload.id)}
-                      deleteUpload={() => deleteUpload(upload.id)}
+                      deleteUpload={() =>
+                        deleteUpload(upload.id, upload.fileId)
+                      }
                     />
                   ))}
                 </div>

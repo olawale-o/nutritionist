@@ -18,6 +18,7 @@ const modifyFiles = (existingFiles: any, files: any) => {
         controller: controller,
         status: UPLOAD_STATUS.uploading,
         isCancelled: false,
+        fileId: id.toString(),
       },
     };
   }
