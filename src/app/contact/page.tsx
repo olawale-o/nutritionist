@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Support } from "./components/Support";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { CTA } from "@/components/common/CTA";
 
 export default function Page() {
   return (
@@ -15,7 +16,11 @@ export default function Page() {
             />
             <Support />
             <Contact />
-            <Footer />
+            <CTA
+              description="Join us at Nutritionist and let us guide you on the path to a healthier and happier you."
+              title="Are you ready to embark on a transformative journey towards better health and wellness?"
+              buttonLabel="Join Us Now"
+            />
           </div>
         </div>
       </div>
