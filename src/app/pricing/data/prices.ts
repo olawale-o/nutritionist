@@ -48,7 +48,7 @@ const plans = {
         "Email support to address your questions and concerns.",
         "Regular check-ins with a dedicated nutritionist to review your progress and provide guidance.",
       ],
-      price: "49",
+      price: "2000",
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ const plans = {
         "Priority email support for quicker responses to your inquiries.",
         "Educational resources and guides to deepen your understanding of nutrition and healthy habits.",
       ],
-      price: "79",
+      price: "2300",
     },
     {
       id: 3,
@@ -74,7 +74,7 @@ const plans = {
       ],
       extra:
         "The Premium Plan is designed for individuals who are committed to achieving significant results and require the highest level of support and personalization.",
-      price: "99",
+      price: "3000",
     },
   ],
 };
