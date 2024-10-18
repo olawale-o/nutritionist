@@ -1,7 +1,6 @@
 import { Header } from "@/components/Header";
 import { Support } from "./components/Support";
 import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
 import { CTA } from "@/components/common/CTA";
 
 export default function Page() {
