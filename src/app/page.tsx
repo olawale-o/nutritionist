@@ -1,6 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
-import { Blog } from "@/components/Blog";
+import { BlogPage } from "@/components/Blog";
 import { Pricing } from "@/components/Pricing";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
           <div className="mn-[50px] xl:mb-[80px] 2xl:mb-[100px]">
             <Hero />
             <Features />
-            <Blog />
+            <BlogPage />
             <Pricing />
           </div>
         </div>
