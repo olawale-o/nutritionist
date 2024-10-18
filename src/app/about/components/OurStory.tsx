@@ -1,71 +1,79 @@
-const stories = [
-  {
-    id: 1,
-    title: "Inspiring Transformations Story",
-    text: "Nutritionist continues to empower individuals to transform their lives through personalized nutrition coaching. With an expanding client base and a growing team of experts, we remain committed to our goal of helping people lose weight, improve their health, and lead happier, more fulfilling lives. Our journey of inspiring transformations continues, one client at a time.",
-    date: "July 1, 2025",
+"use client";
+import { useEffect, useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
+
+import { stories } from "../data";
+
+const container = {
+  hidden: { opacity: 1, scale: 1 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.2,
+    },
   },
-  {
-    id: 2,
-    title: "Recognition and Accolades Story",
-    text: "Nutritionist received industry recognition for its excellence in personalized nutrition coaching. Our innovative approach and dedication to client success earned us accolades and solidified our position as a leading provider in the field",
-    date: "March 10, 2023",
+  odd: {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+    description: {
+      hidden: { x: 20, opacity: 0 },
+      visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          delay: 1,
+        },
+      },
+    },
   },
-  {
-    id: 3,
-    title: "Continued Growth Story",
-    text: "Nutritionist celebrated serving over 5,000 clients, a testament to our commitment to helping individuals achieve their health and weight loss goals. This milestone highlighted the positive impact we have made on the lives of thousands of people.",
-    date: "November 2, 2021",
+  even: {
+    hidden: { x: 20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+    description: {
+      hidden: { x: -20, opacity: 0 },
+      visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          delay: 1,
+        },
+      },
+    },
   },
-  {
-    id: 4,
-    title: "Collaborating for Success Story",
-    text: "Nutritionist established partnerships with renowned health professionals, including nutritionists, dietitians, and wellness experts. These collaborations allowed us to incorporate diverse perspectives and expertise, ensuring the highest level of guidance for our clients.",
-    date: "July 15, 2019",
-  },
-  {
-    id: 5,
-    title: "Enhanced Support Story",
-    text: "In response to the growing demand for personalized nutrition coaching, Nutritionist expanded its team of qualified nutritionists and dietitians. This milestone enabled us to provide even more individualized care and support to our clients.",
-    date: "April 1, 2018",
-  },
-  {
-    id: 6,
-    title: "Innovating for Clients Story",
-    text: "Nutritionist introduced a mobile app, revolutionizing the way clients engage with their personalized nutrition plans. The app allowed for easy tracking of progress, access to resources, and seamless communication with their dedicated nutrition coaches.",
-    date: "January 20, 2017",
-  },
-  {
-    id: 7,
-    title: "Celebrating Success Stories",
-    text: "Nutritionist celebrated its 500th client success story. These stories showcased the positive impact of personalized nutrition coaching on individuals' lives, further motivating our team to continue providing exceptional services.",
-    date: "September 5, 2015",
-  },
-  {
-    id: 8,
-    title: "Expanding Reach Story",
-    text: "Nutritionist expanded its services by launching an online platform, allowing individuals from all over the world to access personalized nutrition plans and expert guidance. This milestone brought convenience and accessibility to our growing client base.",
-    date: "June 10, 2014",
-  },
-  {
-    id: 9,
-    title: "Research and Expertise Story",
-    text: "After extensive research and collaborating with nutrition experts, Sarah Mitchell and her team developed a comprehensive program rooted in scientific knowledge and evidence-based strategies. This milestone marked the establishment of Nutritionist as a trusted source of personalized nutrition coaching.",
-    date: "March 15, 2012",
-  },
-  {
-    id: 10,
-    title: "The Inception Story",
-    text: "On this day, Nutritionist was born with the vision of helping individuals achieve their weight loss and health goals through personalized nutrition coaching. The founder, Sarah Mitchell, recognized the need for a sustainable and effective approach to healthy living, and thus began the journey of Nutritionist.",
-    date: "January 1, 2010",
-  },
-];
+};
 
 const Story = ({ story }: { story: any }) => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+
   return (
-    <div className="overflow-hidden w-full flex flex-col lg:flex-row lg:items-stretch lg:even:flex-row-reverse border-l-[1px] border-t-[1px] border-r-[1px] border-solid border-green-90 last:border-b-[1px] first:rounded-tr-xl first:rounded-tl-xl last:rounded-br-xl last:rounded-bl-xl">
+    <motion.div
+      ref={containerRef}
+      initial="hidden"
+      animate={controls}
+      variants={container}
+      className="overflow-hidden w-full flex  border-l-[1px] border-t-[1px] border-r-[1px] border-solid border-green-90 last:border-b-[1px] first:rounded-tr-xl first:rounded-tl-xl last:rounded-br-xl last:rounded-bl-xl"
+    >
       {story.id % 2 == 0 ? (
-        <>
+        <motion.div
+          variants={container.even}
+          className="flex flex-col lg:flex-row-reverse lg:items-stretch"
+        >
           <div className="basis-1/2 overflow-hidden">
             <figure className="relative aspect-[3/2] h-full overflow-hidden">
               <div className="absolute inset-0 w-full h-full">
@@ -79,7 +87,10 @@ const Story = ({ story }: { story: any }) => {
 
           <div className="w-full pt-[11px] bg-green-70 lg:basis-[12px] lg:pt-0  self-stretch" />
 
-          <div className="lg:flex basis-1/2">
+          <motion.div
+            variants={container.even.description}
+            className="lg:flex basis-1/2"
+          >
             <div className="bg-green-95 flex flex-grow">
               <div className="p-[30px] xl:p-[60px] 2xl:p-20">
                 <div className="flex flex-col lg:items-end">
@@ -99,10 +110,13 @@ const Story = ({ story }: { story: any }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </>
+          </motion.div>
+        </motion.div>
       ) : (
-        <>
+        <motion.div
+          variants={container.odd}
+          className="flex flex-col lg:flex-row lg:items-stretch"
+        >
           <div className="basis-1/2 overflow-hidden">
             <figure className="relative aspect-[3/2] h-full overflow-hidden">
               <div className="absolute inset-0 w-full h-full">
@@ -116,7 +130,10 @@ const Story = ({ story }: { story: any }) => {
 
           <div className="w-full pt-[11px] bg-green-70 lg:basis-[12px] lg:pt-0  self-stretch" />
 
-          <div className="lg:flex basis-1/2">
+          <motion.div
+            variants={container.odd.description}
+            className="lg:flex basis-1/2"
+          >
             <div className="bg-green-95">
               <div className="p-[30px] xl:p-[60px] 2xl:p-20">
                 <div className="flex flex-col">
@@ -136,37 +153,40 @@ const Story = ({ story }: { story: any }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </>
+          </motion.div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
-const OurStory = () => (
-  <section>
-    <div>
-      <div className="mt-[50px] xl:mt-[100px] 2xl:mt-[150px]">
-        <div>
-          <h2 className="text-grey-15 text-[28px] xl:text-[38px] xl:leading-[57px] 2xl:text-[48px] 2xl:leading-[72px]  font-urbanist leading-[42px] font-bold text-center">
-            Our Story
-          </h2>
-          <div className="mt-[6px] xl:max-w-[780px] 2xl:max-w-[996px] mx-auto">
-            <div className="text-sm text-grey-20 leading-[21px] font-medium text-center xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
-              Welcome to Nutritionist, your partner in achieving optimal health
-              through personalized nutrition coaching. Our certified
-              nutritionists are here to guide you on your weight loss journey.
+const OurStory = () => {
+  return (
+    <section>
+      <div>
+        <div className="mt-[50px] xl:mt-[100px] 2xl:mt-[150px]">
+          <div>
+            <h2 className="text-grey-15 text-[28px] xl:text-[38px] xl:leading-[57px] 2xl:text-[48px] 2xl:leading-[72px]  font-urbanist leading-[42px] font-bold text-center">
+              Our Story
+            </h2>
+            <div className="mt-[6px] xl:max-w-[780px] 2xl:max-w-[996px] mx-auto">
+              <div className="text-sm text-grey-20 leading-[21px] font-medium text-center xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-[27px]">
+                Welcome to Nutritionist, your partner in achieving optimal
+                health through personalized nutrition coaching. Our certified
+                nutritionists are here to guide you on your weight loss journey.
+              </div>
             </div>
           </div>
         </div>
+
+        <div className="mt-[50px] xl:mt-[60px] 2xl:mt-20">
+          {stories.map((story, i: number) => (
+            <Story key={story.id} story={story} />
+          ))}
+        </div>
       </div>
-      <div className="mt-[50px] xl:mt-[60px] 2xl:mt-20">
-        {stories.map((story, i: number) => (
-          <Story key={story.id} story={story} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export { OurStory };
